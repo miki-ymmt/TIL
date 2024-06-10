@@ -1,18 +1,26 @@
-h (TTL h)
+6/9 ~ 6/10  16h (TTL h)
 
 ## 【実施内容】
--
--
--
-
-
-***
-
-## 【学習を通して】
--
--
--
-
+- エンジニア思考法６章
+- x共有リンク
+-　ransack 一覧検索機能
+- googleアナリティクス導入
+-　sorceryパスワードリセット(ローカルの確認はOK)　本番環境の設定はこれから。アプリパスワードの取得まで実施。
+- マイページ
+- アカウント削除時のダイアログが出ない問題を修正 
+[削除時の確認ダイアログ が出せない　rails7](https://low-termite-482.notion.site/rails7-645872619cb1422fba5aa4940a4d7ec1?pvs=4)
+- PCを再起動したら投稿していたものが消えた。ボリュームに問題があるかと思って、既存のボリュームを消して新しいものを再度構築しようとしたが、
+結果としてwebコンテナが立ち上がらなくなり、依存関係も消えてしまった。
+docker fileにyarn addでtailwindとesbuildをインストールするように書いたけど、
+後日先輩から同じようにdbが消えた人の解決策を聞くとシンプルだった。
+[開発時、ローカルのDBデータが消える](https://low-termite-482.notion.site/DB-69e17514c91a4620a226ebb76c0422f8?pvs=4)
+```
+compose.ymlのボリュームを以下のようにする
+postgresql_data:/var/lib/postgresql/data
+docker compose run web yarn install  
+```
+- 分かったこと：docker-compose.yml  の volumeは、最後に /data をつけないとデータが永続化しない！！！！
+ボリュームを消したことで、依存関係も消えてしまい、再度必要になったのだと思われる。
 
 
 
