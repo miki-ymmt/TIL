@@ -1,0 +1,28 @@
+## 技術スタック
+
+| 技術         | 詳細                                                                 |
+|--------------|----------------------------------------------------------------------|
+| フロントエンド | HTML, CSS, JavaScript, Tailwind CSS, DaisyUI                         |
+| バックエンド   | Ruby on Rails                                                        |
+| データベース   | PostgreSQL                                                          |
+| 認証         | Devise (または Sorcery)                                               |
+| デプロイ     | Heroku (または Render)                                               |
+| バージョン管理 | Git, GitHub                                                         |
+| CI/CD       | GitHub Actions                                                        |
+| API       | OpenAI API                                                        |
+| コンテナ      | Docker                                                               |
+| テスト       | RSpec, Capybara                                                       |
+
+### 詳細
+
+- **フロントエンド**: Tailwind CSSとDaisyUIを使用してスタイリッシュなユーザーインターフェースを実現。
+- **バックエンド**: Ruby on Railsを使用して迅速かつ堅牢なAPIおよびサーバーサイドロジックを構築。
+- **データベース**: PostgreSQLをデータベースとして使用し、データの永続性を確保。
+- **認証**: Devise（またはSorcery）を使用してユーザー認証を実装。
+- **デプロイ**: Heroku（またはRender）を使用してアプリケーションをデプロイ。
+- **バージョン管理**: GitとGitHubを使用してバージョン管理およびチームコラボレーションを実現。
+- **CI/CD**: GitHub Actionsを使用して継続的インテグレーションおよびデプロイメントを自動化。
+- **API**: OpenAI APIを使用してAIチャットボット機能を実現。
+- **コンテナ**: Dockerを使用して開発環境および本番環境をコンテナ化。
+- **テスト**: RSpecとCapybaraを使用してテスト自動化を実施。
+
