@@ -1,1 +1,134 @@
+# 【Udemy Docker入門➕応用】
+https://www.udemy.com/course/ok-docker/?couponCode=JPOF62224
 
+## Dockerとは？
+
+コンテナ：独立しているもの
+- コンテナを使うと、ホストマシンのMySQLとコンテナ内のSQLのバージョンが違っても開発時問題なくできる
+
+- ホストOSの上に複数のコンテナを作成して別の開発ができる。
+それぞれのコンテナ同士干渉されない
+
+- 異なるホストでも再現可能（Dockerfileを用いる）
+- ターミナルで”docker"と打つと使い方が出てくる
+
+- docker conatainer run hello world を打ったときに以下のエラーが出たら、dockerデスクトップがちゃんと立ち上がっていない可能性ある。
+[cannot connect the Docker demon at ~~~ docker demon running?]
+
+## Dockerイメージとは？
+Dockerの実行環境テンプレートのこと
+イメージには、コンテナに必要なソフトウェア、環境変数、設定などの情報が入っている。
+イメージ＝コンテナの型となるもの
+
+⚫︎配布＆コンテナ環境の再現が可能
+イメージは、変更不可な静的テンプレート
+どの環境で実行しても同じコンテナ環境が再現できる（イメージの起動による）
+
+
+## イメージとコンテナのライフサイクル
+- イメージの入手方法
+1️⃣イメージレジストリ（Docker hubなど）
+2️⃣Docker foleでカスタマイズ
+
+created:作ったばかりのコンテナ
+up:コマンドの実行ができる状態
+existed:起動していない
+
+## イメージをダウンロード、破棄する
+- docker image pull {イメージ名}
+→イメージをダウンロードするコマンド
+
+- docker image ls
+→ローカルマシンに存在するイメージ一覧を表示するコマンド
+
+- docker image rm {イメージ名(イメージID)}
+→ローカルマシンに存在するイメージを削除するコマンド
+
+## イメージからコンテナを作成、実行する
+- docker container run {イメージ名}
+→イメージからコンテナを作成し起動するコマンド
+
+- docker conatiner ls (upしているコンテナを表示)
+→ローカルマシンに存在するコンテナ一覧を表示するコマンド
+-a オプションをつけることで起動していないコンテナも表示される
+
+## コンテナを停止、再起動する
+- docker container stop{コンテナ名}
+→起動中のコンテナを止めるコマンド
+
+- docker container restart {コンテナ名}
+→コンテナを再起動(upにする)コマンド
+
+
+## コンテナを破棄する
+- docker container rm {コンテナ名}
+→コンテナを破棄するコマンド
+　　　　　statusがexistedのみ有効。
+
+## bashとは、、、？
+コンテナの実行には必要不可欠！
+LinuxやMacなどのUnix系のOSで利用されているシェルノ一種
+
+シェル：ユーザーが使うコマンドで機械語を翻訳する。また、機械語にしてOSに指示
+OS(カーネルソフトウェア)：ファイルを開く etc. 機械語で指示。人間は直接指示しない。
+
+- bashを使うと、ユーザー⇔OS間のやり取りが可能になる
+シェルコマンド（ex pwd,cd,bash）
+
+- Ubuntu:代表的なLinuxOSのこと。　無料で使える。
+デフォルトコマンド：bash 
+
+✅docker container run -it ubuntu:20.04 を実行すると、、、以下のようになる。
+root@23456789:/#
+⭐️rootというユーザー名で今作ったコンテナにbashでアクセスしているということ
+
+
+## container runするときの-itオプションを深掘りする
+- itオプションとは、-i、　-t を繋げたオプション。
+
+これがないと、コマンドを打っても標準入力がclosedになっているのでbashコマンドを打っても起動ができず、コンテナがexistedになってしまう。
+
+⭐️-iをつけると、ubuntuコンテナの標準入力がopenになるので、コンテナに指示を出すことができるようになる＝　bashコマンドができるようになる
+しかし現在のままだと、　lsした際の中身が縦列になっていて見づらい。
+
+⭐️-tをつけると、、、
+root@0987654323456789:/# ls
+bin boot dev etc home lib
+
+上記のように見やすい表記になる！！！
+
+## コンテナ起動時に実行されるコマンドを変更する
+- docker image inspect{イメージ名}
+→ imageに設定されている詳細の情報を表示する
+Config
+  Cmd
+   "bash"    このようにデフォルトコマンドを確認できる
+
+- docker container run -it ubuntu:20.04 lsとかpwd
+→自分が実行したいコマンドと一緒に実行する
+
+
+## 既存のコンテナコマンドを実行させる
+- docker container exec {コンテナ名}{実行したいコマンド}
+up状態のコンテナに任意のコマンドを実行させるコマンド
+
+## run/exec の違いは？
+- docker conatiner run -it{イメージ名}{実行したいコマンド}
+→イメージからコンテナを新規作成し、コマンドを実行する
+
+- docker conatiner exec -it {コンテナ名}{実行したいコマンド}
+→既存のコンテナで、コマンドを実行する
+
+## コンテナに好きな名前をつける
+- docker conatiner run --name{つけたい名前}　ubuntu:20.04
+
+## コンテナの整理に便利なコマンド
+- docker container prune
+→ 止まっているコンテナを削除する(created,existedコンテナ)
+
+- docker conatainer ls -aをするとupのコンテナのみ残る
+
+
+- docker container rm -f {コンテナ名}
+→動作中のコンテナを強制削除する
+この後docker container ls -aをするとコンテナが消えている
