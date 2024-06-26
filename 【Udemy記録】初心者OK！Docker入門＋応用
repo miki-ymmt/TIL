@@ -132,3 +132,37 @@ up状態のコンテナに任意のコマンドを実行させるコマンド
 - docker container rm -f {コンテナ名}
 →動作中のコンテナを強制削除する
 この後docker container ls -aをするとコンテナが消えている
+
+
+- Docker file（イメージを作るための設計書）をコーディングして自分だけのイメージをコンテナ化する。
+
+コンテナぞカスタムすると、持ち出しができず、自分のPCでしか動かないので、イメージをカスタムしてそのイメージを配布する
+
+## Docker fileからイメージを作成
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/fd5e6902-f15a-43a8-aba0-9557cbca738d/df647c4a-74d3-43b4-a5e1-538c2b91e235/Untitled.png)
+
+これだと対象のイメージがどれか分かりづらい。
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/fd5e6902-f15a-43a8-aba0-9557cbca738d/1566cfb7-f393-439b-b9b5-85fcda77a96e/Untitled.png)
+
+## イメージに名前をつける
+
+docker image build -t {つけたいリポジトリ名}{つけたいタグ名}
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/fd5e6902-f15a-43a8-aba0-9557cbca738d/aa26d4a1-8b66-436a-8319-359fe06a8349/Untitled.png)
+
+docker image lsでリポジトリ名とタグ名が反映できているか確認する。
+
+## 任意のコマンドを実行する
+
+```
+RUN apt update
+```
+
+Docker fileを実行してイメージを作成するときに、”apt updateを実行するように”という指示
+
+→この後のイメージはubuntu20.04をapt updateを実行し終わった後のものである
+
+
+
