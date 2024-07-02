@@ -127,3 +127,325 @@ const message2 = `私の名前は${name}です。年齢は${age}です。`;
 };
 
 
+## 分割代入
+const myProfile = {
+  name: "もち",
+  age: 28
+};
+
+
+const message1 = `名前は${myProfile.name}です。年齢は${myProfile.age}歳です。`
+console.log(message1);
+
+
+出力→名前はもちです。年齢は28歳です。
+
+ちょっと冗長？？？
+こんな時に分割代入がある！！
+
+
+→取り出したいオブジェクトから、直接プロパティを指定する
+
+const { name, age } = myProfile;
+const message2 = `名前は${name}です。年齢は${age}歳です。`;
+console.log(message2)
+
+名前はもちです。年齢は28歳です。
+出力結果が上と同じ！！！！
+
+
+## 配列の場合
+
+(分割代入使わない書き方)
+const myProfile = ["もち", 28];
+ 
+const message3 = `名前は${myProfile[0]}です。年齢は${myProfile[1]}歳です。`;
+console.log(message3);
+
+(配列の分割代入の場合)
+
+- オブジェクトではないので[]で受け取る
+
+- 配列は順番しか持っていないので特定の名前で取り出せない
+
+- 自分で好きな変数を定義する
+
+const myProfile = ["もち", 28];
+ 
+const message3 = `名前は${myProfile[0]}です。年齢は${myProfile[1]}歳です。`;
+console.log(message3);
+ 
+以下のように書ける
+const = [name, age] = myProfile;
+const message4 = `名前は${name}です。年齢は${age}歳です。`;
+console.log(message4);
+ 配列０番目はname, 1番目はageという変数名で受け取る。
+
+* デフォルト値（引数、分割代入）
+ */
+ 
+const sayHello = (name = "ゲスト") => console.log(`こんにちは！${name}さん！`);
+sayHello();
+ 
+(関数の引数のデフォルト値を設定できる。値が設定されていない時に表示されるもの。)
+
+const myProfile = {
+  age: 28
+};
+const { age, name = "ゲスト" } = myProfile;
+console.log(age);
+console.log(name);
+
+
+(プロパティ名と変数の名前が同じ時は:が省略可能！！！)
+
+const myProfile = {
+  name:  name,
+  age:  age
+};
+console.log(myProfile);
+↓
+
+const myProfile = {
+  name,
+  age
+};
+console.log(myProfile);
+
+
+
+/**
+ * スプレッド構文...
+ */
+ 
+// 配列の展開
+const arr1 = [1, 2];
+// console.log(arr1);
+// console.log(...arr1);
+ 
+結果
+console.log(arr1);　　　　　　　　　　　　[1, 2]
+console.log(...arr1)　　　　　　　　　１　　　　２
+ 
+ 
+const sumFunc = (num1, num2) => console.log(num1 + num2);
+// sumFunc(arr1[0], arr1[1]);
+sumFunc(...arr1);  上と同じ頃をしている
+ 
+結果
+両方とも　　　３　　が出力される
+
+
+分割代入とスプレッド構文の応用
+配列の最初と２番目の値をarr2から取り出し、あとは配列で取り出したい場合
+ 
+const arr2 = [1, 2, 3, 4, 5];
+const [num1, num2, ...arr3] = arr2;
+console.log(num1);
+console.log(num2);
+console.log(arr3);
+ 
+出力結果
+1
+2
+(3) [3, 4, 5]
+
+
+// 配列のコピー、結合
+const arr4 = [10,20];
+const arr5 = [30,40];
+const arr６ = [...arr4];
+console.log(arr6);
+ 
+スプレッド構文でarr4の配列を展開した後、再度配列にしてarr6として出力する（arr4の配列をコピーする）
+ 
+出力　　　　　　　 [10, 20]
+
+
+const arr4 = [10,20];
+const arr5 = [30,40];
+ 
+//const arr6 = [...arr4];
+// console.log(arr6);
+ 
+const arr7 = [...arr4, ...arr5];
+console.log(arr7);
+ 
+出力：　　[10, 20, 30, 40]
+
+
+// mapやfilterを使った配列の処理
+const nameArr = ["田中", "山本", "山田"];
+ 
+nameArr.map((name) => {
+ 
+});
+ 
+()引数に名前が入ることでループされる仕組み
+
+
+(mapの結果として新しい配列を作る)
+
+const nameArr = ["田中", "山本", "山田"];
+ 
+const nameArr2 = nameArr.map((name) => {
+  return name;
+});
+
+⭐️(配列のフィルターをかける)
+
+例　奇数のみ取り出したい
+
+const numArr = [1, 2, 3, 4, 5];
+const newArr = numArr.filter((num) => {
+  return num % 2 === 1;
+});
+console.log(newArr);
+
+
+
+(名前が入ったリスト（配列）を使って、その名前と順番を表示するプログラム)
+
+const nameArr = ["田中", "山本", "山田"];
+nameArr.map((name, index) => console.log(`${index + 1}番目は${name}です`));
+
+
+出力
+
+1番目は田中です
+
+2番目は山本です
+
+3番目は山田です
+
+
+⭐️コードの意味
+
+const nameArr = ["田中", "山本", "山田"];
+nameArr.map((name, index) => console.log(`${index + 1}番目は${name}です`));
+
+
+このコードは、名前が入ったリスト（配列）を使って、その名前と順番を表示するプログラムです。
+
+各部分の説明
+
+配列の作成:
+
+const nameArr = ["田中", "山本", "山田"];
+
+
+ここでは nameArr という名前の配列（リスト）を作成しています。この配列には、「田中」、「山本」、「山田」という名前が入っています。
+
+配列を使った処理:
+
+nameArr.map((name, index) => console.log(`${index + 1}番目は${name}です`));
+
+
+ここで map という方法を使って、配列の中の各名前とその順番を表示しています。
+
+⭐️map とは？
+
+map は配列の各要素に対して指定した処理を実行するための方法です。ここでは、name と index という2つの情報を使っています。
+
+name は配列の各要素（つまり各名前）です。
+
+index はその名前が配列の中で何番目にあるかを示す番号です（0から始まります）。
+
+
+
+
+⭐️[処理の流れ]
+
+最初の要素「田中」の場合:
+
+index は0
+
+name は「田中」
+
+表示されるのは「1番目は田中です」（index + 1 なので1になります）
+
+次の要素「山本」の場合:
+
+index は1
+
+name は「山本」
+
+表示されるのは「2番目は山本です」
+
+最後の要素「山田」の場合:
+
+index は2
+
+name は「山田」
+
+表示されるのは「3番目は山田です」
+
+⭐️[全体の流れ]
+配列 nameArr が作成されます。
+
+map によって、配列の各要素（名前）について処理が行われます。
+
+各名前とその順番が表示されます。
+
+
+
+⭐️(自分の名前以外に「さん」をつける)
+
+
+const nameArr = ["田中", "山本", "山田"];
+// nameArr.map((name, index) => console.log(`${index + 1}番目は${name}です`));
+ 
+const newNameArr = nameArr.map((name) => {
+  if (name === "山本") {
+    return name;
+  } else {
+    return `${name}さん` ;
+  }
+});
+console.log(newNameArr);
+
+コンソール
+
+['田中さん', '山本', '山田さん']
+
+
+⭐️map,filterはUIの出し訳でよく使うので要復習！！
+
+
+
+⭐️三項演算子　使い方
+ 
+ある条件　? 条件がtrueの時　：　条件がfalseの時
+ 
+const val1 = 1 > 0 ? "trueです" : "falseです";
+console.log(val1);
+ 
+コンソール
+trueです
+
+
+
+
+const num = 1300;
+console.log(num.toLocaleString());
+
+// toLocaleString  数値を３桁区切りで表記する　　　　ex 1,300円 数字のみ有効！
+
+const num = "1300";
+console.log(num.toLocaleString());
+
+const formattedNum = typeof num === 'number' ? num.toLocaleString() : "数値を入力してください";
+console.log(formattedNum);
+
+"1300"は文字列なので"数値を入力してください"と表示される
+
+
+
+// ||は左側がtruthyの時、その時点でその値を返却する
+const num = 100;
+const fee = num || "金額未設定です！"
+console.log(fee);
+ 
+→  100　
+
+
