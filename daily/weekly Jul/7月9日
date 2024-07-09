@@ -1,1 +1,53 @@
 
+
+８h (TTL 946h)
+
+
+## 【実施内容】
+- アプリ開発 TODOの追加、削除機能　非同期処理
+-　[猫でもわかるHotwire入門 Turbo編](https://zenn.dev/shita1112/books/cat-hotwire-turbo)
+- Dockerの本　ch4
+- [エンジニア転職チャンネル](https://www.youtube.com/watch?v=6tU2MP9jEq4)だから面接が通らない。未経験からのエンジニア転職における面接合格の秘訣とは！？
+- プチ深夜バディ〜昨日参加できなかった思いを乗せて〜
+
+
+
+***
+
+## 【学習を通して】
+- turbo削除問題は前述の通り。AIに頼りがちでまだまだ理解が浅いので、猫でもわかる。。。。とrailsガイドで勉強してます。
+- Turbo FramesがHTML要素の置換しかできないのに対して、Turbo StreamsではHTML要素の追加・更新・削除をすることが可能
+-　[複数のチェックボックスの内容をDBに保存する](https://low-termite-482.notion.site/DB-b4346c2dae2343a1895b389865e989fe?pvs=4)
+→今回かなりここに詰まったのですが、もともとテーブルのカラムをfalse/trueが入るboolean型というものにしていたんですが、そこにどうやって値を入れるのかが分かっていなかった。
+hidden_fieldとJSのイベントリスナーを設定することで、false（チェックボックスにチェックしていない場合）も明示的にDBに保存する必要があるということが分かった。
+- memberルーティング。collectionと似ているけど、特定のリソースに対して個別のアクションをするためのもの(idを伴う)
+  - `POST /trips/:id/add_todo` → 特定の `Trip` に対して新しい `Todo` を追加する
+  - `PATCH /trips/:id/update_todo` → 特定の `Trip` に対して `Todo` を更新する
+  - `DELETE /trips/:id/destroy_todo` → 特定の `Trip` に対して `Todo` を削除する
+-　そろそろ自己分析も並行します。エンジニアになりたい理由、どんなエンジニアになりたいかをどの角度から掘られても答えられるようにしたいです。
+
+
+
+
+
+
+
+***
+
+## 【その他】
+
+
+
+
+
+***
+
+
+## 【明日のTo Do】
+- アプリ開発　パスポート関連
+- 自分言語化ノート ch2終わらせる
+- SOFT SKILLS
+- 猫でもわかるHotwire入門 Turbo編
+
+お疲れ様でした！！！！
+
