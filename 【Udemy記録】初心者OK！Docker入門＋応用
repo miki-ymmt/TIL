@@ -170,3 +170,5 @@ Docker fileを実行してイメージを作成するときに、”apt update�
 
 
 
+[![Image from Gyazo](https://i.gyazo.com/2ea79d7542bc5521d5e7192de599ce69.png)](https://gyazo.com/2ea79d7542bc5521d5e7192de599ce69)
+dockerデーモン：buildしてイメージを作るところ。REST APIを通してクライアントとお話をしている。
