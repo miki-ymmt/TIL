@@ -1,0 +1,36 @@
+
+8/7 6h (1145h)
+- アプリ開発
+ヘッダーのレイアウト修正
+- cron job設定
+- LINEとユーザーの紐付け
+
+
+おはようございます！
+結局安価だったのでcron job使うことにしました。
+UTCでの実行なので、深夜0時に合わせて（日本時間朝9時）にしました。
+ユーザーの紐付けがうまくいっていないことは確認できました。。。。。。。。
+jobを実行してコンソールで確認すると、該当の旅の読み込みはできているけど、LINEユーザーが見つからなくて送られないということですね。
+```
+root@5818e7f2a587:/myapp# rails runner "SendTripReminderJob.perform_now"
+Executing send_travel_notifications method
+Trips found: 1
+Processing trip for user: 1
+No LINE user ID found for user: 1
+root@5818e7f2a587:/myapp
+```
+あとはトークンの検証に失敗したエラーが出たので
+protect_from_forgery with: :null_sessionを書くも変わらず。。。。
+LINEのcallbackアクションは外部からのリクエストなので通常のユーザー認証はスキップしないといけないのか。。。。
+今　before_action :authenticate_user!, only: [:callback]こうなってたわ、、、、、
+これを以下に変更
+```
+  skip_before_action :require_login, only: [:callback]
+  protect_from_forgery with: :null_session
+```
+```
+E, [2024-08-07T15:41:53.655216 #114] ERROR -- : [8909562b-7649-46ee-93b1-0ee4f6678c86]   
+[8909562b-7649-46ee-93b1-0ee4f6678c86] ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+```
+時間はかかりそうです、、、、、
+しばらくtimesスタンプいけないと思います...😱
