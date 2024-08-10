@@ -1,25 +1,16 @@
+8/10
 
-毎日のプログラミング学習記録を以下のフォーマットに沿って記載しています。
-
-
-
-h (TTL h)
+4h (TTL 1169h)
 
  【実施内容】
--
--
--
-
-
+- アプリ開発
+- 転職チャンネル視聴
+- Zenn記事執筆
 ***
 
 【学習を通して】
--
--
--
-
-
-
+-　外部ホストにリダイレクトした時のエラー対応についての記事
+[【Rails 7】ActionController::Redirecting::UnsafeRedirectErrorが出た時の対応](https://zenn.dev/mockey/articles/46aee2dc0839be)
 
 
 ***
@@ -34,9 +25,9 @@ h (TTL h)
 
 
 【明日のTo Do】
--
--
--
+-　RUNTEQ path
+- paiza
+- 🍒本
 
-お疲れ様でした！！！！
+ また明日！！！
 
