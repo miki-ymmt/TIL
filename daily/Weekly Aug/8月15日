@@ -1,0 +1,37 @@
+
+8/15
+
+８h (TTL １１８３h)
+
+ 【実施内容】
+- パスワードリセット機能
+- ユーザー登録機能レイアウト修正
+-　　ログインページレイアウト修正
+
+
+***
+
+【一言】
+
+ローカルではletter_opener_webにメールが来たのですが、本番環境で届きません。
+render　のログには以下のエラーがあり、SMTP周辺の設定が原因だと思ってます
+```
+E, [2024-08-15T17:11:53.080001 #120] ERROR -- : [64152da3-9973-4c90-93ad-337d68ead7c9]   
+[64152da3-9973-4c90-93ad-337d68ead7c9] Net::SMTPAuthenticationError (535-5.7.8 Username and Password not accepted. For more information, go to
+
+Username and Password not acceptedが原因か？？？？
+```
+```
+ UserMailer#reset_password_email: processed outbound mail in 5.8ms
+I, [2024-08-15T17:11:53.078938 #120]  INFO -- : Failed delivery of mail 66be36d770478_786ae046878@srv-cq392kaju9rs7399pam0-c8b846754-2wgb9.mail error_class=Net::SMTPAuthenticationError error_message="535-5.7.8 Username and Password not accepted. For more information, go to\n"
+```
+
+
+
+***
+
+
+【明日のTo Do】
+- 続き
+-　終わり次第記事の執筆（job関連）
+-　paiza
