@@ -1,1 +1,119 @@
 
+
+8/2２
+
+８h (TTL 12４１h)
+
+ 【実施内容】
+- アプリ開発
+- ヘッダー修正
+- ローディングスピナー導入
+
+
+
+***
+
+【学習を通して】
+**[ローディングスピナー]**
+turboと組み合わせるのむず。。。。。😂
+先輩ありがとうございました
+turbo使ってる場合はコードコピペでは実装できなかった....
+https://daisyui.com/components/loading/
+リクエストがfetchなのかgetなのかでも違うかもしれない。
+
+
+結局ID属性間違えてました。と、docker再起動しました。
+- stimulusコントローラー作成
+app/javascript/controllers/spiner_controller.js
+```
+import { Controller } from "@hotwired/stimulus"
+
+export default class extends Controller {
+  static targets = ["spinner", "submitButton"]
+
+  connect() {
+    this.element.addEventListener("turbo:submit-start", this.showSpinner.bind(this))
+    this.element.addEventListener("turbo:submit-end", this.hideSpinner.bind(this))
+  }
+
+  disconnect() {
+    this.element.removeEventListener("turbo:submit-start", this.showSpinner.bind(this))
+    this.element.removeEventListener("turbo:submit-end", this.hideSpinner.bind(this))
+  }
+
+  showSpinner() {
+    this.spinnerTarget.classList.remove('hidden')
+    this.submitButtonTarget.disabled = true
+  }
+
+  hideSpinner() {
+    this.spinnerTarget.classList.add('hidden')
+    this.submitButtonTarget.disabled = false
+  }
+}
+```
+
+- form送信時にイベント発火させる　scriptタグの作成が必要
+- Stimulusでは、1つのHTML要素に対して複数のコントローラーを適用することができる
+- form-resetコントローラー(フォームクリアにした以前の実装)はフォームの送信後にフォームをリセットする機能
+- spinnerコントローラーはフォームの送信開始時にスピナーを表示し、送信完了時に非表示にする機能
+
+複数のコントローラーを指定する場合は、スペースで区切れる
+```
+<%= form_with(model: @chatbot, url: chatbots_answer_path, data: { controller: "form-reset loading-spinner", action: "turbo:submit-end->form-reset#reset turbo:submit-start->loading-spinner#show turbo:submit-end->loading-spinner#hide", turbo_frame: "chatbot-form" }) do |f| %>
+```
+- application.htmlのbody内にコードを記載
+```
+<body class="bg-icicle text-gray-700 font-zen relative">
+
+  <div id="spinner-container" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50" data-loading-spinner-target="spinner">
+    <span class="loading loading-spinner loading-lg text-primary"></span>
+  </div>
+
+  <div class="relative z-10">
+    <% if logged_in? %>
+      <%= render 'shared/header' %>
+    <% else %>
+      <%= render 'shared/before_login_header' %>
+    <% end %>
+    <main class="flex-grow">
+    <%= render 'layouts/flash_messages' %>
+    <%= yield %>
+    </main>
+    <%= render 'shared/footer' %>
+    <%= javascript_include_tag 'lightbox-plus-jquery.min' %>
+  </div>
+
+  <script>
+  document.addEventListener("turbo:submit-start", function() {
+      document.getElementById("spinner-container").classList.remove("hidden");
+  });
+
+  document.addEventListener("turbo:submit-end", function() {
+      document.getElementById("spinner-container").classList.add("hidden");
+  });
+  </script>
+  </body>
+```
+
+
+[![Image from Gyazo](https://i.gyazo.com/4b450210c79644f61dbebfd715f3e184.gif)](https://gyazo.com/4b450210c79644f61dbebfd715f3e184)
+
+
+昨日今日ともう何10時間やってるかわからないですが、綺麗に書く余裕がなかなかないので、
+備忘録でちょこちょこ書いていきますね〜
+フライトコラムは完成しました✈️豆知識的なページです。
+PRしセルフレビューしたらホーム画面にやっと着手できるぜ！
+action cable使うbotの実装は本リリ後に挑戦したい！
+あとRUNTEQ祭ギリギリ出せそうだし頑張る🔥
+
+[![Image from Gyazo](https://i.gyazo.com/b612ee24d93044d377710b939781655c.png)](https://gyazo.com/b612ee24d93044d377710b939781655c)
+***
+
+
+【明日のTo Do】
+- ホーム画面修正
+- ヘッダー修正
+
+
+お疲れ様でした！！！！
