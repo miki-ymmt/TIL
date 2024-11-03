@@ -1,0 +1,16 @@
+*   \[x\] [正規表現記事3](https://qiita.com/jnchito/items/6f0c885c1c4929092578)
+*   \[x\] 校長のgitコンフリクト解消方法
+*   \[x\] railsの記事読む [**Deviseのモヤモヤを解消して快適なRailsライフを送ろう！**](https://zenn.dev/kitabatake/articles/start-to-like-the-devise)
+*   \[x\] 面談
+
+***
+
+ -最近sorceryのメンテがストップしたこともありdeviceの理解しなきゃなと思って記事読んでました。
+結局使ってみないことには分からんことも多いけど、gemのインストールするだけでApp controllerに認証用メソッド付与してくてたりするみたいですね。
+- deviceはwardenというRack Middlewareをベースにしているそうだけども、このRack Middlewareって何だ！？　
+`Rack Middleware`:　記事によると「Railsがrequestを処理する前段階で、人仕事をするもの」。RubyのWebサーバー（たとえばPumaやWEBrick）とWebアプリケーション（たとえばRails）をつなぐインターフェース
+[Rack入門 概念編 (1/3)](https://qiita.com/nishio-dens/items/e293f15856d849d3862b)
+ん〜何となくわかるような分からんような？
+
+- 複数モデルの認証を入れるときに、deviceは自動生成されるけど、sorceryはカスタムが必要。
+拡張機能を見てもやっぱり数が多いですね！
