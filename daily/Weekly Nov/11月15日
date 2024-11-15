@@ -1,0 +1,29 @@
+11/15
+[実施内容]
+ドットインストール　【重要】[UNIXコマンド入門](https://dotinstall.com/lessons/basic_unix_v3)　のみ！！
+
+
+***
+雨であまり体調も良くなかったけど、どうしてもやりたくてなんとか終了✨
+見慣れないコマンドばっかりでメモを取るのに必死でしたが、これも需要項目と会社から言われているのでメモを見返し動画を見返し復習します！
+使いこなせたら効率も上がるし必須技術なのは納得。chmod コマンドで権限書き換えとかかっこいいなと思いました。
+rmコマンドは要注意ですね！！⚠️
+ここに書くと長くなるのでnotionを貼る！
+[notionメモ](https://low-termite-482.notion.site/UNIX-13ee1130dc2d80d7aaa3caed49f2c7a1?pvs=4)
+```
+⭐️一部概念的なところ抜粋
+- UNIX は Windows や macOS と同じく OS の一種で、 UNIX はインターネットを構成するサーバー用によく使われる。
+- UNIX は、一時期オープンソースで配布されたこともあって、 無料の互換 OS がたくさん登場して広まったという経緯がある
+- 広まった互換 OS には BSD や Minux など他にもたくさんあるが、特に広く使われているのが Linux
+- Linux は独自の設定や構成で配布している企業や団体がたくさんあり、その配布形式のことをディストリビューション (Distribution) と呼ぶ
+- 有名なディストリビューション。 Red Hat Enterprise Linux 、 CentOS 、 Debian 、 Ubuntu そして今回使っていく Alpine など
+- macOS も UNIX を源流に持つ OS
+- Windows や macOS のようにマウスで操るようなインターフェースを GUI (Graphical User Interface) 、コマンドだけで操るインターフェースを CUI (Character-based User Interface) という
+```
+***
+[明日のtodo]
+出かけるけど、DBは優先度高めで絶対やりたい！！マークダウンはサクッと流そうかな。
+
+*   \[ \] 🍒本　ch7 　7.4 復習
+*   \[ \] ドットインストール　[マークダウン記法入門](https://dotinstall.com/lessons/basic_markdown_v3) 5個
+*   \[ \] **SQL 第2版: ゼロからはじめるデータベース操作 ch1**
