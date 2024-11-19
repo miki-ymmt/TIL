@@ -1,0 +1,75 @@
+11/19
+
+【実施内容】
+- [x]  ドットインストール　**Tailwind CSS入門 8~14**
+- [x]  **SQL 第2版: ゼロからはじめるデータベース操作　ch1完**
+- [x]  web技術の基本  ch4読み終える
+- [x]  🍟会  rails 8.0でrails new
+
+
+***
+
+【学習📣】
+
+- SQL　テーブルの削除と変更諸々
+```
+### テーブルの削除と変更
+
+- テーブルの削除
+
+```jsx
+DROP TABLE <テーブル名>;   
+```
+
+削除したテーブルは復活できない!!要注意！
+
+- 列を追加
+
+```jsx
+ALTER TABLE <テーブル名> ADD COLUMN <列の定義>;
+```
+
+- 列を削除
+
+```jsx
+ALTER TABLE <テーブル名> DROP COLUMN <列名>;
+```
+
+ALTER TABLE もDROP TABLEと同様、実行したら元に戻せない！
+
+- 全てのデータの削除
+TRUNCATE TABLE Shohin; 
+⭐️ ※My SQLで実行するには**START TRANSACTION;** に変更する
+
+【テーブルの訂正】
+- テーブル名の変更は使う機会があるもののパッと出てこないので覚えておくと良い
+- テーブル名の変更
+    
+    postgreSQL    
+    
+    ```jsx
+    ALTER TABLE Sohin RENAME TO Shohin;
+    ```
+    My SQL
+    ```jsx
+   RENAME TABLE Sohin to Shohin;
+    ```
+```
+
+- rails ver8.0でrails newしてみました。セキュリティ面の強化や、CIの自動化、rubocopのgem(rubocop-rails-omakase)がデフォルトで入ったりと、アプリ開発が迅速にできるように進化してました。
+あとは今まで手動で追記しなきゃだったPWA化に必要なファイルがデフォルトで生成されるようになったところも便利だなと。確か3つくらい工程があった気がするので、、
+rubocopはomakase gemでよしなにしてくれてそうだなと実行結果見て思いました。今まではrubocopエラーが厳しすぎてrubocop.ymlで修正したりしてたんですけど、そういうのがgemによって自動的に緩和されてるってことなんか？(原理はよくわかってないけど)
+strong parameterのとこはrails new佳境でなんとなくの理解だったからまた確認します！
+***
+
+【雑談🗣️】
+
+
+【明日のTo Do】
+- [ ]  ドットインストール　**Ruby入門**
+- [ ]  **SQL 第2版: ゼロからはじめるデータベース操作 ch2**
+- [ ]  ネイル
+- [ ]  🍒本　ch7.5 ~6 読む　朝活🌞
+- [ ]  🍒輪読会 7.6.4~
+
+お疲れ様でした！！！！
