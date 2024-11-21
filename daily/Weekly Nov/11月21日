@@ -1,0 +1,31 @@
+11/21
+【実施内容】
+- [x]  **SQL 第2版: ゼロからはじめるデータベース操作 ch2  輪読会 7:30~**
+- [x]  リーダブルコード輪読会 22:00~
+- [x]  帰省  
+
+
+***
+
+【一言📣】
+- SQLはSELET文、WHERE句、ASキーワード、DISTINCTキーワードあたりを実施。SQL内に書く文字列、日付はシングルクォーテーションで囲って
+日本語でASで別名をつけるときなどはダブルクォーテーションを使う。シングルにするとエラーになる。
+
+[![Image from Gyazo](https://i.gyazo.com/ce7c105e604eb7d0e83e4aef185b94d5.png)](https://gyazo.com/ce7c105e604eb7d0e83e4aef185b94d5)
+
+- SQLは句の記述順が決まっていて、WHERE句はFROM句の直後に書く。
+- NULLは比較演算子は使えない。NULLかどうかを判別するには`IS NULL`を使う。
+[![Image from Gyazo](https://i.gyazo.com/99a6304660b21fb87215fdba8dc23629.png)](https://gyazo.com/99a6304660b21fb87215fdba8dc23629)
+
+***
+
+
+
+
+【明日のTo Do】
+- [ ]  ドットインストール　**Ruby入門 制御構造編**
+- [x]  **SQL 第2版: ゼロからはじめるデータベース操作 論理演算子　輪読会5am~**
+- [ ]  web技術の基本 ch5
+
+
+お疲れ様でした！！！！
