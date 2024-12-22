@@ -1,0 +1,72 @@
+12/21
+【実施内容】
+
+- [x]  [Reactドキュメント](https://ja.react.dev/)読む クイックスタート
+- [x]  Udemy モダンJSの基礎から始める挫折しないためのReact入門
+- [x]  先輩のLT会視聴
+
+***
+
+【学び📣】
+- 先輩のLT会に参加しました。貴重な機会に参加させていただきありがとうございました！✨就活のお話を含めてエンジニアとして働く上で心がけたほうがいいこと、逆にそんなに心配しなくても良さそうなことが分かったので働くイメージがよりリアルになりました。
+- 自分で常に考えて解決に向けて取り組める自走力が今後も求められることを意識しながら業務にあたりたいと思いました。
+<React関連(メモ)>
+
+- ⭐️state: それぞれのコンポーネントが持っている状態のこと
+ex) エラー有無、モーダル開いてるか否か、APIからとってきたデータの状態、フォームコンポーネントは入力された文字を保持、画像ギャラリのコンポーネントは選択された画像を保持
+- stateとstateを更新していくための関数２つを受け取る仕組み　=> 配列の分割代入　const[num, setNum] = useState(); 
+()には初期値を入れることができる(ボタンのカウント時は0にするなど)
+- 関数コンポーネントの上部でしか呼び出せない
+```
+export const App = () => {
+  const [num, setNum] = useState(0);
+  const [isShowFace, setIsShowFace] = useState(true);
+  const onClickCountUp = () => {
+    setNum((prev) => prev + 1);
+  };
+  const onClickToggle = () => {
+    setIsShowFace(!isShowFace)
+  };
+```
+- Too many re-renders は useState の使い方が原因 
+エラーになる↓
+```
+const [count, setCount] = useState(0);
+
+// NG: コンポーネントが無限にレンダリングされる
+setCount(count + 1);
+```
+解決策
+useEffect の第二引数（依存配列）を適切に設定して無限ループを防ぐ。
+```
+useEffect(() => {
+  setCount(count + 1);
+}, []); // 空配列で初回レンダリング時のみ実行
+```
+###⭐️useEffect の役割
+useEffect は、副作用（Side Effect）を処理するためのフック
+
+DOM の操作（例: スクロール位置の設定）
+データの取得（例: API コール）
+イベントリスナーの登録・解除
+タイマーの設定・クリア
+
+=> [公式](https://ja.react.dev/reference/react/useEffect#my-effect-keeps-re-running-in-an-infinite-cycle)にもあるけど、使用場面は考えて使う必要あり。
+[そのエフェクトは不要かも](https://ja.react.dev/learn/you-might-not-need-an-effect)
+ちょっとこの辺理解難しい。エフェクトは、外部システムと同期したい場合には必要だけど、最近のフレームワークは「効率的な組み込みデータ取得メカニズムを提供している」　らしい。
+こればっかりはフレームワーク使ってみないとよく分かりませんね。
+
+***
+
+
+
+
+【To Do】
+- [ ]  railsAPI作る
+- [ ]  記事執筆
+- [x]  reactドキュメント読む
+- [ ]  ドットインストール　React TODOアプリ 5まで(できたら)
+
+API最優先！
+
+頑張りましょ〜〜！！！！
