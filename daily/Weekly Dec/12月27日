@@ -14,7 +14,7 @@
   - [Node.jsとはなにか？なぜみんな使っているのか？](https://qiita.com/non_cal/items/a8fee0b7ad96e67713eb)
   - [Node.jsとは？メリット・デメリットやできることを解説]()
 - Node.js＝JavaScriptをサーバーサイドで実行するための実行環境のこと！！JSはブラウザ上で動作する言語だが、Node.jsを使うことでブラウザ外(サーバーやローカルでもJSが実行できるようになる)
-- 私的解釈ですが、Node.jsをインストールしないとNext.jsを使ってバックエンド開発ができないってことだと思っている。(Next.jsはNode.js上で動作するため)
+- 私的解釈ですが、Node.jsをインストールしないとNext.jsを使ってバックエンド開発ができないってことだと思っている。バックエンドでJSを使うための環境のためにNode.jsをインストールする必要がある(Next.jsはNode.js上で動作するため)
 *npm（Node Package Manager）**は、Node.jsと一緒にインストールされるパッケージ管理ツールで、npmを使ってNext.jsをインストールして依存するライブラリ(ReactやTaiwindCSS)を管理する
 
 
