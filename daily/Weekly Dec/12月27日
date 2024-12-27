@@ -16,7 +16,14 @@
 - Node.js＝JavaScriptをサーバーサイドで実行するための実行環境のこと！！JSはブラウザ上で動作する言語だが、Node.jsを使うことでブラウザ外(サーバーやローカルでもJSが実行できるようになる)
 - 私的解釈ですが、Node.jsをインストールしないとNext.jsを使ってバックエンド開発ができないってことだと思っている。バックエンドでJSを使うための環境のためにNode.jsをインストールする必要がある(Next.jsはNode.js上で動作するため)
 *npm（Node Package Manager）**は、Node.jsと一緒にインストールされるパッケージ管理ツールで、npmを使ってNext.jsをインストールして依存するライブラリ(ReactやTaiwindCSS)を管理する
-
+[ルーティングについて]
+- ページを表示する仕組みはURLに応じてフォルダを作ってpage.tsxを配置していく。
+※ ファイルの名前は必ず page とする必要があり、このファイルがなかったり違う名前だったりしたら、ページが表示されない！！
+```
+ex) localhost:3000/ → app/page.tsx
+    localhost:3000/about → app/about/page.tsx
+    localhost:3000/products/new → app/products/new/page.tsx
+```
 
 
 
