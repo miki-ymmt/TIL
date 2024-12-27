@@ -24,7 +24,10 @@ ex) localhost:3000/ → app/page.tsx
     localhost:3000/about → app/about/page.tsx
     localhost:3000/products/new → app/products/new/page.tsx
 ```
-
+-　ダイナミックルーティングを使うことで、値に応じてページの中身を出し分けられるようになる
+```
+app/users/[userId]/page.tsx
+```
 
 
 
